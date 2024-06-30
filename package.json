@@ -2,7 +2,7 @@
   "name": "employeems",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://JACOBODOYO.github.io/EMPLOYEE-MS",
+  "homepage": "https://JACOBODOYO.github.io/Human_resource_system",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
