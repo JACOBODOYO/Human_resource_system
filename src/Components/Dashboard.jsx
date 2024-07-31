@@ -1,5 +1,4 @@
-// eslint-disable-next-line no-unused-vars
-import React from "react";
+// import React from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import axios from "axios";
@@ -9,7 +8,7 @@ const Dashboard = () => {
   axios.defaults.withCredentials = true;
   const handleLogout = () => {
     localStorage.removeItem("valid")
-    axios.get("http://localhost:3000/auth/logout").then((result) => {
+    axios.get("http://localhost:3001/auth/logout").then((result) => {
       if (result.data.Status) {
         navigate("/");
       }
@@ -49,7 +48,85 @@ const Dashboard = () => {
                 >
                   <i className="fs-4 bi-people ms-2"></i>
                   <span className="ms-2 d-done d-sm-inline">
-                    Manage Employees
+                    Employees
+                  </span>
+                </Link>
+              </li>
+              <li className="w-100">
+                <Link
+                  to="/dashboard/company"
+                  className="nav-link px-0 align-middle text-white"
+                >
+                  <i className="fs-4 bi-building ms-2"></i>
+                  <span className="ms-2 d-done d-sm-inline">
+                    Company
+                  </span>
+                </Link>
+              </li>
+              <li className="w-100">
+                <Link
+                  to="/dashboard/calendar"
+                  className="nav-link px-0 align-middle text-white"
+                >
+                  <i className="fs-4 bi-calendar ms-2"></i>
+                  <span className="ms-2 d-done d-sm-inline">
+                    Calendar
+                  </span>
+                </Link>
+              </li>
+              
+              <li className="w-100">
+                <Link
+                  to="/dashboard/leave"
+                  className="nav-link px-0 align-middle text-white"
+                >
+                  <i className="fs-4 bi-calendar3 ms-2"></i>
+                  <span className="ms-2 d-done d-sm-inline">
+                    Leave
+                  </span>
+                </Link>
+              </li>
+              <li className="w-100">
+                <Link
+                  to="/dashboard/review"
+                  className="nav-link px-0 align-middle text-white"
+                >
+                  <i className="fs-4 bi-calendar3 ms-2"></i>
+                  <span className="ms-2 d-done d-sm-inline">
+                    Review
+                  </span>
+                </Link>
+              </li>
+              <li className="w-100">
+                <Link
+                  to="/dashboard/report"
+                  className="nav-link px-0 align-middle text-white"
+                >
+                  <i className="fs-4 bi-calendar3 ms-2"></i>
+                  <span className="ms-2 d-done d-sm-inline">
+                    Report
+                  </span>
+                </Link>
+              </li>
+              <li className="w-100">
+                <Link
+                  to="/dashboard/Manage"
+                  className="nav-link px-0 align-middle text-white"
+                >
+                  <i className="fs-4 bi-calendar3 ms-2"></i>
+                  <span className="ms-2 d-done d-sm-inline">
+                    Manage
+                  </span>
+                </Link>
+              </li>
+              <li className="w-100">
+                <Link
+                  to="/dashboard/Settings"
+                  className="nav-link px-0 align-middle text-white"
+                >
+                  <i className="fs-4 bi-calendar3 ms-2"></i>
+                  <span className="ms-2 d-done d-sm-inline">
+                    Settings
                   </span>
                 </Link>
               </li>
@@ -68,7 +145,7 @@ const Dashboard = () => {
                   className="nav-link px-0 align-middle text-white"
                 >
                   <i className="fs-4 bi-person ms-2"></i>
-                  <span>Profile</span>
+                  <span className="ms-2 d-done d-sm-inline">Profile</span>
                 </Link>
               </li>
               <li className="w-100" onClick={handleLogout}>

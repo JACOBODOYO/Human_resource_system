@@ -1,47 +1,37 @@
- import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
-
 
 const Submit = () => {
-  const [payslip, setPayslip] = useState([]);
-  
+  const [payslipId, setPayslipId] = useState('');
+  const [payslipDetails, setPayslipDetails] = useState(null);
 
-  const { id } = useParams();
-  
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await axios.get(`http://localhost:3001/api/payslip/${payslipId}`);
+      setPayslipDetails(response.data);
+    } catch (error) {
+      console.error('Error fetching payslip details:', error);
+    }
+  };
 
-  // useEffect(() => {
-  //   // Make HTTP request to backend to fetch payslip details based on employee name
-  //   axios.get("http://localhost:3000/payslip/" + id)
-  //     .then(response => {
-  //       setPayslip(response.data);
-  //     })
-  //     .catch(error => {
-  //       console.error('Error fetching payslip details:', error);
-  //     });
-  // }, [id]);
-
-  useEffect(() => {
-    // Make HTTP request to backend to fetch payslip details based on employee name
-    axios.get(`http://localhost:3000/payslip/${id}`)
-      .then(response => {
-        setPayslip(response.data);
-      })
-      .catch(error => {
-        console.error('Error fetching payslip details:', error);
-      });
-  }, [id]);
-
-  
   return (
     <div>
-      {/* Display payslip details here */}
-      <h2>Payslip Details for {payslip.id} </h2>
-      <ul>
-        <li>Month: </li>
-        <li>Year: </li>
-        {/* Add more payslip details as needed */}
-      </ul>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={payslipId}
+          onChange={(e) => setPayslipId(e.target.value)}
+          placeholder="Enter payslip ID"
+        />
+        <button type="submit">Submit</button>
+      </form>
+      {payslipDetails && (
+        <div>
+          <h2>Payslip Details:</h2>
+          <pre>{JSON.stringify(payslipDetails, null, 2)}</pre>
+        </div>
+      )}
     </div>
   );
 };

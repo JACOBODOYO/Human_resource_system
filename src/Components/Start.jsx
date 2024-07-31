@@ -1,4 +1,5 @@
 import axios from "axios";
+// eslint-disable-next-line no-unused-vars
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -7,7 +8,7 @@ const Start = () => {
     const navigate = useNavigate();
     axios.defaults.withCredentials = true;
     useEffect(() => {
-      axios.get('http://localhost:3000/verify')
+      axios.get('http://localhost:3001/verify')
       .then(result => {
         if(result.data.Status) {
           if(result.data.role === "admin") {
@@ -17,7 +18,7 @@ const Start = () => {
           }
         }
       }).catch(err => console.log(err))
-    }, [])
+    }, [navigate])
   return (
     <div className="d-flex justify-content-center align-items-center vh-100 loginPage">
       <div className="p-3 rounded w-25 border loginform">

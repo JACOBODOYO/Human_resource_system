@@ -18,7 +18,10 @@
 }
 
 .emp_det_image {
-    border-radius: 50%;
+    border-radius: 5%;
+    height: 300px;
+    width: 200px;
+
     
   }
 .payslipsTable{
@@ -49,3 +52,40 @@ th{
   .btn {
     margin-right: 10px; /* Add spacing between buttons */
   }
+
+  .welcome {
+    color: gray;
+    
+
+  }
+  .image{
+    border-radius: 50%;
+    background-color: yellow;
+  }
+
+  .home{
+    width: 50%;
+    
+    
+  }
+  .homed{
+    background-color: rgb(248, 239, 239);
+    
+  }
+  .admin{
+    width: 25%;
+  }
+  .jul{
+  
+    border-radius: 5px;
+  }
+  /* styles.css */
+.home, .admin {
+  background-color: yellow; /* initial background color */
+  transition: background-color 0.3s ease; /* smooth transition effect */
+}
+
+.home:hover, .admin:hover {
+  background-color: blue; /* background color on hover */
+  color: white; /* adjust text color for better readability */
+}

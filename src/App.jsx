@@ -20,6 +20,12 @@ import Submit from "./Components/Submit";
 import Leave from "./Components/Leave";
 import P9Form from "./Components/P9Form";
 import LeaveCalculator from "./Components/LeaveCalculator";
+import Calender from "./Components/Calender";
+import Review from "./Components/Review";
+import Report from "./Components/Report";
+import Company from "./Components/Company";
+import Manage from "./Components/Manage";
+import Settings from "./Components/Settings";
 
 
 function App() {
@@ -48,6 +54,16 @@ function App() {
           <Route path="/dashboard/edit_employee/:id" element={<EditEmployee />}></Route>
           <Route path="/dashboard/payslip" element={<Payslip />}></Route>
           <Route path="/dashboard/add_payslip" element={<AddPayslip />}></Route>
+          <Route path="/dashboard/calendar" element={<Calender />}></Route>
+          <Route path="/dashboard/leave" element={<Leave />}></Route>
+          <Route path="/dashboard/review" element={<Review />}></Route>
+          <Route path="/dashboard/report" element={<Report/>}></Route>
+          <Route path="/dashboard/company" element={<Company/>}></Route>
+          <Route path="/dashboard/manage" element={<Manage/>}></Route>
+          <Route path="/dashboard/settings" element={<Settings/>}></Route>
+        
+
+
         </Route>
         <Route path="/employee_detail/:id">
             <Route path="/employee_detail/:id/submit" element={<Submit />}></Route>

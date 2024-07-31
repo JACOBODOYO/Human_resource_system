@@ -8,7 +8,7 @@ const Employee = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/auth/employee")
+      .get("http://localhost:3001/auth/employee")
       .then((result) => {
         if (result.data.Result) {
           setEmployee(result.data.Result);
@@ -16,15 +16,16 @@ const Employee = () => {
           alert(result.data.Error);
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log("Error fetching employees", err));
   }, []);
   const handleDelete = (id) => {
-    axios.delete("http://localhost:3000/auth/delete_employee/" + id)
-    .then((result) => {
+    axios
+      .delete("http://localhost:3001/auth/delete_employee/" + id)
+      .then((result) => {
         if (result.data.Status) {
-            window.location.reload();
+          window.location.reload();
         } else {
-          alert(result.data.Error)
+          alert(result.data.Error);
         }
       });
   };
@@ -33,9 +34,20 @@ const Employee = () => {
       <div className="d-flex justify-content-center">
         <h3>Employee List</h3>
       </div>
-      <Link to="/dashboard/add_employee" className="btn btn-success">
-        Add Employee
-      </Link>
+      <div>
+        <Link to="" className="btn btn-info">
+          All Employee
+        </Link>
+        <Link to="/dashboard/add_employee" className="btn btn-success">
+          Add Person
+        </Link>
+      </div>
+      <div className="flex">
+        <div className=" border w-75 ">7 people</div>
+        <div className="w-25">Hello</div>
+        <div className="w-25">Hello</div>
+        <div></div>
+      </div>
       <div className="mt-3">
         <table className="table">
           <thead>
@@ -54,7 +66,7 @@ const Employee = () => {
                 <td>{e.name}</td>
                 <td>
                   <img
-                    src={`http://localhost:3000/Images/` + e.image}
+                    src={`http://localhost:3001/Images/` + e.image}
                     className="employee_image"
                   />
                 </td>

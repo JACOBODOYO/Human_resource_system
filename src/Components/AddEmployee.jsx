@@ -19,7 +19,7 @@ const AddEmployee = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get("http://localhost:3000/auth/category")
+        axios.get("http://localhost:3001/auth/category")
         .then(result => {
             if(result.data.Result) {
                 setCategory(result.data.Result);
@@ -40,7 +40,7 @@ const AddEmployee = () => {
       formData.append('image', employee.image);
       formData.append('category_id', employee.category_id);
 
-      axios.post("http://localhost:3000/auth/add_employee", formData)
+      axios.post("http://localhost:3001/auth/add_employee", formData)
       .then(result => {
         if(result.data.Status) {
           navigate('/dashboard/employee')

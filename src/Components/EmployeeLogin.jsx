@@ -16,7 +16,7 @@ const EmployeeLogin = () => {
       const handleSubmit = (event) => {
         event.preventDefault();
         axios
-          .post("http://localhost:3000/employee/employee_login", values)
+          .post("http://localhost:3001/employee/employee_login", values)
           .then((result) => {
             if (result.data.loginStatus) {
                 localStorage.setItem("valid", true)
